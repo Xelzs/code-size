@@ -41,10 +41,17 @@ const sizeByFile = (data) => {
 };
 
 const size = (data) => {
-  let out = {};
+  let out;
 
-  data.source ? (out = getSizes(data)) : '';
-  data.file ? (out = sizeByFile(data)) : '';
+  try {
+    data.source ? (out = getSizes(data)) : '';
+    data.file ? (out = sizeByFile(data)) : '';
+
+    !data.source && !data.file ? (out = 'Error: Please specify a source code or a path to a file.') : '';
+  } catch (error) {
+    out = false;
+    console.error(error);
+  }
 
   return out;
 };

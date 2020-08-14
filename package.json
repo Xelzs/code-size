@@ -8,6 +8,13 @@
   },
   "author": "Axel SIMONET",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xelzs/code-size"
+  },
+  "bugs": {
+    "url": "https://github.com/Xelzs/code-size/issues"
+  },
   "bin": {
     "code-size": "bin/code-size"
   },

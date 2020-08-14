@@ -8,7 +8,7 @@ const size = require('../src/index');
 commander
   .version(package.version)
   .description(package.description)
-  .usage('[option]')
+  .usage('[options]')
   .option('-s, --source <code>', 'specify raw source code')
   .option('-f, --file <path>', 'specify path to a file')
   .option('-g, --gzip', 'show gzipped size')
@@ -26,6 +26,8 @@ const { file, source, language, minify, gzip, brotli } = commander;
 
   if (!file && !source) {
     console.log(chalk.red('Error: Please specify a source code or a path to a file.'));
+    console.log();
+    commander.help();
     return;
   }
 
@@ -39,8 +41,12 @@ const { file, source, language, minify, gzip, brotli } = commander;
 
   const data = size({ language: languageFmt, gzip, brotli, minify, source, file });
 
+  if (!data) {
+    return;
+  }
+
   console.log('Original size :', chalk.blue(data.original));
-  data.minify ? console.log('Minify size :', chalk.blue(data.minify)) : '';
+  data.minify ? console.log('Minified size :', chalk.blue(data.minify)) : '';
   data.gzip ? console.log('Gzip size :', chalk.blue(data.gzip)) : '';
   data.brotli ? console.log('Brotli size :', chalk.blue(data.brotli)) : '';
 })();
