@@ -1,0 +1,46 @@
+#!/usr/bin/env node
+
+const commander = require('commander');
+const chalk = require('chalk');
+const package = require('../package.json');
+const size = require('../src/index');
+
+commander
+  .version(package.version)
+  .description(package.description)
+  .usage('[option]')
+  .option('-s, --source <code>', 'specify raw source code')
+  .option('-f, --file <path>', 'specify path to a file')
+  .option('-g, --gzip', 'show gzipped size')
+  .option('-b, --brotli', 'show brotli size')
+  .option('-m, --minify', 'show minified size | !! Work only with supported language !!')
+  .option('-l, --language <language>', 'specifies the language type. Supported: css, scss', 'css')
+  .parse(process.argv);
+
+const { file, source, language, minify, gzip, brotli } = commander;
+
+(async () => {
+  console.log();
+  console.log(chalk.green('CodeSize | Version ' + package.version));
+  console.log();
+
+  if (!file && !source) {
+    console.log(chalk.red('Error: Please specify a source code or a path to a file.'));
+    return;
+  }
+
+  const availableLanguages = ['css', 'scss'];
+  languageFmt = language.toLowerCase();
+
+  if (minify && !availableLanguages.includes(languageFmt)) {
+    console.log(chalk.red('Error: Please choose a supported language.'));
+    return;
+  }
+
+  const data = size({ language: languageFmt, gzip, brotli, minify, source, file });
+
+  console.log('Original size :', chalk.blue(data.original));
+  data.minify ? console.log('Minify size :', chalk.blue(data.minify)) : '';
+  data.gzip ? console.log('Gzip size :', chalk.blue(data.gzip)) : '';
+  data.brotli ? console.log('Brotli size :', chalk.blue(data.brotli)) : '';
+})();

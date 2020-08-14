@@ -1,0 +1,20 @@
+{
+  "name": "code-size",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Axel SIMONET",
+  "license": "MIT",
+  "bin": {
+    "code-size": "bin/code-size"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "zlib": "^1.0.5"
+  }
+}
