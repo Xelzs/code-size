@@ -78,3 +78,7 @@ All options availables on command-line are also available here.
 - `brotli` - Boolean to enable the brotli estimation
 - `minify` - Boolean to enable the minify estimation. **Language option required**
 - `language` - Specify the language type. Supported: `css, scss`.
+
+## Changelog
+
+Changelog is accessible in the [CHANGELOG.md](CHANGELOG.md) file or in [the release section](https://github.com/Xelzs/code-size/releases).
