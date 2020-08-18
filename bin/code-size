@@ -13,7 +13,7 @@ commander
   .option('-f, --file <path>', 'specify path to a file')
   .option('-g, --gzip', 'show gzipped size')
   .option('-b, --brotli', 'show brotli size')
-  .option('-m, --minify', 'show minified size | !! Work only with supported language !!')
+  .option('-m, --minify', 'show minified size | !! Works only with supported language !!')
   .option('-l, --language <language>', 'specifies the language type. Supported: css, scss', 'css')
   .parse(process.argv);
 
@@ -36,17 +36,20 @@ const { file, source, language, minify, gzip, brotli } = commander;
 
   if (minify && !availableLanguages.includes(languageFmt)) {
     console.log(chalk.red('Error: Please choose a supported language.'));
+    console.log();
+    commander.help();
     return;
   }
 
   const data = size({ language: languageFmt, gzip, brotli, minify, source, file });
 
   if (!data) {
+    commander.help();
     return;
   }
 
   console.log('Original size :', chalk.blue(data.original));
   data.minify ? console.log('Minified size :', chalk.blue(data.minify)) : '';
-  data.gzip ? console.log('Gzip size :', chalk.blue(data.gzip)) : '';
+  data.gzip ? console.log('Gzipped size :', chalk.blue(data.gzip)) : '';
   data.brotli ? console.log('Brotli size :', chalk.blue(data.brotli)) : '';
 })();

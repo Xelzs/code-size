@@ -2,7 +2,7 @@
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/0926045450cb16d6e423/maintainability)](https://codeclimate.com/github/Xelzs/code-size/maintainability)
 
-CodeSize estimates the size of your files in different format (original, minified, gzipped, brotli).  
+Estimates the size of your files in different format (original, minified, gzipped, brotli).  
 
 **The minified format support only CSS and SCSS languages.**
 
@@ -10,24 +10,24 @@ CodeSize estimates the size of your files in different format (original, minifie
 
 Install code-size package globally with npm :
 
-```shell
-$ npm install -g xelzs/code-size
+```
+$ npm install -g @xelzs/code-size
 ```
 
 Basic usage :
-```shell
+```
 $ code-size -f test.css -gbm --language css
 
 CodeSize | Version 1.0.0
 
 Original size : 9.11 KB
 Minified size : 7.16 KB
-Gzip size : 140 Bytes
+Gzipped size : 140 Bytes
 Brotli size : 82 Bytes
 ```
 
 Available options :
-```shell
+```
 Usage: code-size [options]
 
 Options:
@@ -36,7 +36,7 @@ Options:
   -f, --file <path>          specify path to a file
   -g, --gzip                 show gzipped size
   -b, --brotli               show brotli size
-  -m, --minify               show minified size | !! Work only with supported language !!
+  -m, --minify               show minified size | !! Works only with supported language !!
   -l, --language <language>  specifies the language type. Supported: css, scss (default: "css")
   -h, --help                 display help for command
 ```
@@ -44,8 +44,8 @@ Options:
 ## Programmatic Usage 
 
 Install with npm :
-```shell
-$ npm install --save xelzs/code-size
+```
+$ npm install --save @xelzs/code-size
 ```
 
 Get all sizes : 
@@ -72,7 +72,7 @@ console.log(data);
 ### Options
 All options availables on command-line are also available here.
 
-- `source` - String file content
+- `source` - Raw source code
 - `file` - Path to a file
 - `gzip` - Boolean to enable the gzip estimation
 - `brotli` - Boolean to enable the brotli estimation
