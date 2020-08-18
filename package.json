@@ -1,13 +1,36 @@
 {
-  "name": "code-size",
+  "name": "@xelzs/code-size",
   "version": "1.0.0",
-  "description": "",
+  "description": "Estimates the size of your files in different format (original, minified, gzipped, brotli).",
   "main": "src/index.js",
+  "keywords": [
+    "file",
+    "estimate",
+    "size",
+    "size-calculation",
+    "minify",
+    "css",
+    "scss",
+    "stylesheet",
+    "gzip",
+    "brotli"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Axel SIMONET",
   "license": "MIT",
+  "engines": {
+    "node": ">=10"
+  },
+  "homepage": "https://github.com/Xelzs/code-size#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xelzs/code-size"
+  },
+  "bugs": {
+    "url": "https://github.com/Xelzs/code-size/issues"
+  },
   "bin": {
     "code-size": "bin/code-size"
   },
