@@ -14,7 +14,7 @@ commander
   .option('-g, --gzip', 'show gzipped size')
   .option('-b, --brotli', 'show brotli size')
   .option('-m, --minify', 'show minified size | !! Works only with supported language !!')
-  .option('-l, --language <language>', 'specifies the language type. Supported: css, scss', 'css')
+  .option('-l, --language <language>', 'specifies the language type. Supported: css, sass, scss, js', 'css')
   .parse(process.argv);
 
 const { file, source, language, minify, gzip, brotli } = commander;
@@ -31,7 +31,7 @@ const { file, source, language, minify, gzip, brotli } = commander;
     return;
   }
 
-  const availableLanguages = ['css', 'scss'];
+  const availableLanguages = ['css', 'sass', 'scss', 'js'];
   languageFmt = language.toLowerCase();
 
   if (minify && !availableLanguages.includes(languageFmt)) {
