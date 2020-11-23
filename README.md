@@ -4,8 +4,6 @@
 
 Estimates the size of your files in different format (original, minified, gzipped, brotli).  
 
-**The minified format support only CSS and SCSS languages.**
-
 ## Command-line Usage
 
 Install code-size package globally with npm :
@@ -37,7 +35,7 @@ Options:
   -g, --gzip                 show gzipped size
   -b, --brotli               show brotli size
   -m, --minify               show minified size | !! Works only with supported language !!
-  -l, --language <language>  specifies the language type. Supported: css, scss (default: "css")
+  -l, --language <language>  specifies the language type. Supported: css, sass, scss, js (default: "css")
   -h, --help                 display help for command
 ```
 
@@ -77,7 +75,7 @@ All options availables on command-line are also available here.
 - `gzip` - Boolean to enable the gzip estimation
 - `brotli` - Boolean to enable the brotli estimation
 - `minify` - Boolean to enable the minify estimation. **Language option required**
-- `language` - Specify the language type. Supported: `css, scss`.
+- `language` - Specify the language type. Supported: `css`, `sass`, `scss`, `js`.
 
 ## Changelog
 
